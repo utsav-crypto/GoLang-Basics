@@ -1,15 +1,24 @@
-// ROLLAR COASTER RIDE
+/*ROLLAR COASTER RIDE*/
 
 package main
 
-import "fmt"
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strconv"
+)
 
 func main() {
-	age := 17
+	fmt.Printf("Write your age for verified ride...\n")
+	scanner := bufio.NewScanner(os.Stdin)
+	scanner.Scan()
+	age, _ := strconv.ParseInt(scanner.Text(), 10, 64)
+	// age := 17
 	if age >= 18 {
 		fmt.Printf("You can Ride alone.")
 	} else if age >= 14 {
-		fmt.Printf("You can ride with your father.\n Just wait for %d more years to rSide alone", 18-age)
+		fmt.Printf("You can ride with your father.\nJust wait for %d more years to ride alone", 18-age)
 	} else {
 		fmt.Printf("You can not ride.")
 	}
